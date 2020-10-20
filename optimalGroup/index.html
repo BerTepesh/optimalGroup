@@ -71,7 +71,7 @@
                 <div class="confirm__send mb-3">
                   <a href="#" class="pseudo">Отправить код подтверждения</a>
                 </div>
-                 <ul class="confirm__nums mb-3"><!-- invalid valid -->
+                 <ul class="confirm__nums mb-3" id="confirm_num"><!-- invalid valid -->
                   <li><input type="text"  class="form-control" required placeholder="_"></li>
                   <li><input type="text"  class="form-control" required placeholder="_"></li>
                   <li><input type="text"  class="form-control" required placeholder="_"></li>
@@ -83,7 +83,7 @@
               <div class="input-group mb-4">
                 <input class="form-control required" type="password" id="password" required placeholder="Придумайте пароль">
               </div>
-              <button type="submit" class="btn w-100 mb-3" data-toggle="modal" data-target="#registration-done" onclick="$('#registration').modal('hide');">Зарегистрироваться</button>
+              <button type="submit" class="btn w-100 mb-3" id="submit-reg" data-toggle="modal" data-target="#registration-done" onclick="$('#registration').modal('hide');" disabled>Зарегистрироваться</button>
               <div class="form__hint">Нажимая на кнопку, я даю согласие на <a href="#" class="pseudo">обработку персональных данных</a></div>
             </form>
           </div>
@@ -151,8 +151,8 @@
               <div class="input-group mb-4">
                 <input class="form-control required" type="password" id="password2" required placeholder="Введите пароль">
               </div>
-              <!-- <div class="text-red fs-14 mb-3" style="margin-top: -10px;">Неверные данные. Проверьте, нет ли опечаток</div> -->
-              <button type="submit" class="btn w-100 mt-2 mb-3">Войти</button>
+              <div class="text-red fs-14 mb-3" id="valid1" style="margin-top: -10px;"></div>
+              <button type="submit" id="submit1" class="btn w-100 mt-2 mb-3" disabled>Войти</button>
               <div class="text-center">
                 <a href="#" class="text-red pseudo fs-14" data-toggle="modal" data-target="#registration" onclick="$('#authorisation').modal('hide');">Зерегистрироваться</a>
               </div>
@@ -184,7 +184,7 @@
             <form action="#">
               <label for="mail">Электронная почта</label>
               <div class="input-group mb-4">
-                <input type="email" class="form-control required" required id="mail" placeholder="Введите эл. почту">
+                <input type="email" class="form-control required" id="mail" placeholder="Введите эл. почту">
               </div>
               <div class="row justify-content-between align-items-end">
                 <div class="col">
@@ -195,7 +195,7 @@
                 </div>
               </div>
               <div class="input-group mb-4">
-                <input class="form-control required" type="password" id="password3" required placeholder="Введите пароль">
+                <input class="form-control required" type="password" id="password3" placeholder="Введите пароль">
               </div>
               <div class="text-red fs-14 mb-3" id="valid" style="margin-top: -10px;"></div>
               <button type="submit" id="submit" class="btn w-100 mt-2 mb-3" disabled>Войти</button>
@@ -362,7 +362,8 @@
             <div class="input-group mb-4">
               <input class="form-control required" type="password" id="password5" required placeholder="Повторите новый пароль">
             </div>
-            <button type="button" class="btn w-100 mb-3 mt-2" data-toggle="modal" data-target="#new-pass-done" onclick="$('#new-pass').modal('hide');">Сохранить пароль</button>
+            <div class="text-red fs-14 mb-3" id="valid-pass" style="margin-top: -10px;"></div>
+            <button type="button" class="btn w-100 mb-3 mt-2" id="save_pass" data-toggle="modal" data-target="#new-pass-done" onclick="$('#new-pass').modal('hide');">Сохранить пароль</button>
             <div class="text-center">
               <a href="#" class="text-red pseudo fs-14" data-toggle="modal" data-target="#authorisation" onclick="$('#new-pass').modal('hide');">Вернуться к авторизации</a>
             </div>
