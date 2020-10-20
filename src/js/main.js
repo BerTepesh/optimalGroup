@@ -27,7 +27,6 @@ $('#registration input').blur(function(){
       nums_confirm = false;
     }
   });
-  console.log(phone.val());
   if(!nums_confirm) {
     $('.confirm__nums').removeClass('valid').addClass('invalid');
   } else {
