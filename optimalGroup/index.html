@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta content='true' name='HandheldFriendly' />
+  <meta content='width' name='MobileOptimized' />
+  <meta content='yes' name='apple-mobile-web-app-capable' />
+  <title>optimalGroup</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+    
+    </header>
+    <main class="content h-100">
+      <div class="container-fluid h-100">
+        <div class="button-wrap h-100">
+          <div class="row align-items-center justify-content-center h-100 no-gutters">
+            <div class="col">
+              <div class="row justify-content-around">
+                <div class="col-12 col-sm text-center mb-3 mb-sm-0">
+                  <button type="button" class="btn" data-toggle="modal" data-target="#registration">Регистрация</button>
+                </div>
+                <div class="col-12 col-sm text-center mb-3 mb-sm-0">
+                  <button type="button" class="btn" data-toggle="modal" data-target="#authorisation">Авторизация</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+    
+    </footer>
+    <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="registrationLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="w-100">
+              <div class="row justify-content-between align-items-end">
+                <div class="col">
+                  <h5 class="modal-title" id="registrationLabel">Регистрация</h5>
+                </div>
+                <div class="col-auto">
+                  <a href="#" class="pseudo d-none d-sm-inline">Уже зарегистрированы?</a>
+                  <a href="#" class="pseudo d-inline d-sm-none">Войти</a>
+                </div>
+              </div>
+            </div>        
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="" class="form">
+              <label for="phone">Телефон</label>
+              <div class="input-group mb-2">
+                <div class="phone-pick">
+                  <input class="form-control required" type="tel" id="phone" required placeholder="(___) ___-__-__">
+                </div>
+              </div>
+              <div class="confirm mb-3 mb-sm-4">
+                <div class="confirm__send mb-3">
+                  <a href="#" class="pseudo">Отправить код подтверждения</a>
+                </div>
+                 <ul class="confirm__nums mb-3"><!-- invalid valid -->
+                  <li><input type="text"  class="form-control" required placeholder="_"></li>
+                  <li><input type="text"  class="form-control" required placeholder="_"></li>
+                  <li><input type="text"  class="form-control" required placeholder="_"></li>
+                  <li><input type="text"  class="form-control" required placeholder="_"></li>
+                </ul>
+                <div class="confirm__hint">На указанный телефон придет специальный код, введите его в поле слева</div>
+              </div>
+              <label for="password">Пароль</label>
+              <div class="input-group mb-4">
+                <input class="form-control required" type="password" id="password" required placeholder="Придумайте пароль">
+              </div>
+              <button type="submit" class="btn w-100 mb-3">Зарегистрироваться</button>
+              <div class="form__hint">Нажимая на кнопку, я даю согласие на <a href="#" class="pseudo">обработку персональных данных</a></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/jquery.maskedinput.min.js"></script>
+  <script src="js/main.js"></script>
+  <script></script>
+</body>
+</html>

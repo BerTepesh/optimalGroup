@@ -1,0 +1,5 @@
+@mixin bp($res) {
+  @media (min-width: $res) {
+    @content;
+  }
+}
