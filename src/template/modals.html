@@ -1,15 +1,15 @@
 <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="registrationLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header mb-3">
         <div class="w-100">
           <div class="row justify-content-between align-items-end">
             <div class="col">
               <h5 class="modal-title" id="registrationLabel">Регистрация</h5>
             </div>
             <div class="col-auto">
-              <a href="#" class="pseudo d-none d-sm-inline">Уже зарегистрированы?</a>
-              <a href="#" class="pseudo d-inline d-sm-none">Войти</a>
+              <a href="#" class="pseudo d-none d-sm-inline" data-toggle="modal" data-target="#authorisation" onclick="$('#registration').modal('hide');">Уже зарегистрированы?</a>
+              <a href="#" class="pseudo d-inline d-sm-none" data-toggle="modal" data-target="#authorisation" onclick="$('#registration').modal('hide');">Войти</a>
             </div>
           </div>
         </div>        
@@ -18,7 +18,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="" class="form">
+        <form action="#" class="form">
           <label for="phone">Телефон</label>
           <div class="input-group mb-2">
             <div class="phone-pick">
@@ -41,8 +41,125 @@
           <div class="input-group mb-4">
             <input class="form-control required" type="password" id="password" required placeholder="Придумайте пароль">
           </div>
-          <button type="submit" class="btn w-100 mb-3">Зарегистрироваться</button>
+          <button type="submit" class="btn w-100 mb-3" data-toggle="modal" data-target="#registration-done" onclick="$('#registration').modal('hide');">Зарегистрироваться</button>
           <div class="form__hint">Нажимая на кнопку, я даю согласие на <a href="#" class="pseudo">обработку персональных данных</a></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="registration-done" tabindex="-1" role="dialog" aria-labelledby="registration-doneLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="w-100">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <h5 class="modal-title" id="registration-doneLabel">Вы успешно зарегистрировались</h5>
+            </div>
+          </div>
+        </div>        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal__caption mb-4">Используйте указанные телефон и пароль для входа в личный кабинет</div>
+        <button type="button" class="btn w-100" onclick="$('#registration-done').modal('hide');">Войти</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="authorisation" tabindex="-1" role="dialog" aria-labelledby="authorisationLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header mb-3">
+        <div class="w-100">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <h5 class="modal-title" id="authorisationLabel">Авторизация</h5>
+            </div>
+            <div class="col-auto">
+              <a href="#" class="pseudo" data-toggle="modal" data-target="#authorisation-mail" onclick="$('#authorisation').modal('hide');">Войти при помощи эл. почты</a>
+            </div>
+          </div>
+        </div>        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+          <label for="phone2">Телефон</label>
+          <div class="input-group mb-4">
+            <div class="phone-pick">
+              <input class="form-control required" type="tel" id="phone2" required placeholder="(___) ___-__-__">
+            </div>
+          </div>
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <label for="password2">Пароль</label>
+            </div>
+            <div class="col-auto mb-2">
+              <a href="#" class="pseudo fs-14">Забыли пароль?</a>
+            </div>
+          </div>
+          <div class="input-group mb-4">
+            <input class="form-control required" type="password" id="password2" required placeholder="Введите пароль">
+          </div>
+          <!-- <div class="text-red fs-14 mb-3" style="margin-top: -10px;">Неверные данные. Проверьте, нет ли опечаток</div> -->
+          <button type="submit" class="btn w-100 mt-2 mb-3">Войти</button>
+          <div class="text-center">
+            <a href="#" class="text-red pseudo fs-14" data-toggle="modal" data-target="#registration" onclick="$('#authorisation').modal('hide');">Зерегистрироваться</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="authorisation-mail" tabindex="-1" role="dialog" aria-labelledby="authorisation-mailLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header mb-3 mb-sm-0">
+        <div class="w-100">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <h5 class="modal-title" id="authorisation-mailLabel">Авторизация</h5>
+            </div>
+            <div class="col-auto">
+              <a href="#" class="pseudo" data-toggle="modal" data-target="#authorisation" onclick="$('#authorisation-mail').modal('hide');">Войти при помощи телефона</a>
+            </div>
+          </div>
+          <p class="d-none d-sm-block pt-3">Если вы добавляли эл. почту в личном кабинете, то можете использовать её для авторизации</p>
+        </div>        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+          <label for="mail">Электронная почта</label>
+          <div class="input-group mb-4">
+            <input type="email" class="form-control required" required id="mail" placeholder="Введите эл. почту">
+          </div>
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <label for="password3">Пароль</label>
+            </div>
+            <div class="col-auto mb-2">
+              <a href="#" class="pseudo fs-14">Забыли пароль?</a>
+            </div>
+          </div>
+          <div class="input-group mb-4">
+            <input class="form-control required" type="password" id="password3" required placeholder="Введите пароль">
+          </div>
+          <div class="text-red fs-14 mb-3" id="valid" style="margin-top: -10px;"></div>
+          <button type="submit" id="submit" class="btn w-100 mt-2 mb-3" disabled>Войти</button>
+          <div class="text-center">
+            <a href="#" class="text-red pseudo fs-14" data-toggle="modal" data-target="#registration" onclick="$('#authorisation-mail').modal('hide');">Зерегистрироваться</a>
+          </div>
         </form>
       </div>
     </div>

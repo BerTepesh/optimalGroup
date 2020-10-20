@@ -100,16 +100,26 @@ input[type='number'] {
 .pseudo {
   border-bottom: 1px dashed; }
 
+.text-red {
+  color: #c6152d; }
+
+.fs-14 {
+  font-size: 14px;
+  line-height: 18px; }
+
+.modal-dialog {
+  max-width: 510px; }
+
 .modal-content {
   border: none;
   border-radius: 0; }
 
 .modal-header {
-  padding: 20px 20px 25px;
+  padding: 20px 20px 15px;
   border-bottom: none; }
   @media (min-width: 576px) {
     .modal-header {
-      padding: 30px 40px 25px; } }
+      padding: 30px 40px 15px; } }
   .modal-header .close {
     position: absolute;
     right: 10px;
@@ -172,7 +182,6 @@ input[type='number'] {
     left: 20px;
     margin: auto 0;
     height: 26px;
-    font-weight: bold;
     color: #a4a4a4;
     font-size: 14px; }
     @media (min-width: 576px) {
@@ -182,8 +191,7 @@ input[type='number'] {
   .phone-pick.active:before {
     color: #1d1d1b; }
   .phone-pick input {
-    padding-left: 40px;
-    font-weight: bold; }
+    padding-left: 40px; }
     @media (min-width: 576px) {
       .phone-pick input {
         padding-left: 45px; } }
@@ -208,6 +216,8 @@ input[type='number'] {
   .form-control:focus {
     box-shadow: none;
     border-color: #eaeaea; }
+  .form-control.error {
+    border-color: #e4132f; }
 
 label {
   font-size: 14px;
@@ -266,3 +276,11 @@ label {
     .form__hint {
       font-size: 14px;
       line-height: 21px; } }
+
+.modal__caption {
+  font-size: 14px;
+  line-height: 18px; }
+  @media (min-width: 576px) {
+    .modal__caption {
+      font-size: 16px;
+      line-height: 24px; } }
