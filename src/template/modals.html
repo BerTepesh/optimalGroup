@@ -75,7 +75,7 @@
 <div class="modal fade" id="authorisation" tabindex="-1" role="dialog" aria-labelledby="authorisationLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header mb-3">
+      <div class="modal-header mb-2">
         <div class="w-100">
           <div class="row justify-content-between align-items-end">
             <div class="col">
@@ -103,7 +103,7 @@
               <label for="password2">Пароль</label>
             </div>
             <div class="col-auto mb-2">
-              <a href="#" class="pseudo fs-14">Забыли пароль?</a>
+              <a href="#" class="pseudo fs-14" data-toggle="modal" data-target="#recover" onclick="$('#authorisation').modal('hide');">Забыли пароль?</a>
             </div>
           </div>
           <div class="input-group mb-4">
@@ -122,7 +122,7 @@
 <div class="modal fade" id="authorisation-mail" tabindex="-1" role="dialog" aria-labelledby="authorisation-mailLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header mb-3 mb-sm-0">
+      <div class="modal-header mb-2 mb-sm-0">
         <div class="w-100">
           <div class="row justify-content-between align-items-end">
             <div class="col">
@@ -132,7 +132,7 @@
               <a href="#" class="pseudo" data-toggle="modal" data-target="#authorisation" onclick="$('#authorisation-mail').modal('hide');">Войти при помощи телефона</a>
             </div>
           </div>
-          <p class="d-none d-sm-block pt-3">Если вы добавляли эл. почту в личном кабинете, то можете использовать её для авторизации</p>
+          <div class="d-none d-sm-block pt-3">Если вы добавляли эл. почту в личном кабинете, то можете использовать её для авторизации</div>
         </div>        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true"></span>
@@ -149,7 +149,7 @@
               <label for="password3">Пароль</label>
             </div>
             <div class="col-auto mb-2">
-              <a href="#" class="pseudo fs-14">Забыли пароль?</a>
+              <a href="#" class="pseudo fs-14" data-toggle="modal" data-target="#recover" onclick="$('#authorisation-mail').modal('hide');">Забыли пароль?</a>
             </div>
           </div>
           <div class="input-group mb-4">
@@ -161,6 +161,192 @@
             <a href="#" class="text-red pseudo fs-14" data-toggle="modal" data-target="#registration" onclick="$('#authorisation-mail').modal('hide');">Зерегистрироваться</a>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="recover" tabindex="-1" role="dialog" aria-labelledby="recoverLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header mb-3 mb-sm-0">
+        <div class="w-100">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <h5 class="modal-title" id="recoverLabel">Восстановление пароля</h5>
+            </div>
+          </div>
+          <div class="pt-3 mb-2">Укажите ваш номер телефона или электронную почту для сброса пароля</div>
+        </div>        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <label for="phone4">Телефон</label>
+            </div>
+            <div class="col-auto mb-2">
+              <a href="#" class="pseudo fs-14" data-toggle="modal" data-target="#recover-mail" onclick="$('#recover').modal('hide');">Восстановить при помощи эл.почты</a>
+            </div>
+          </div>
+          <div class="input-group mb-4">
+            <div class="phone-pick">
+              <input class="form-control required" type="tel" id="phone4" required placeholder="(___) ___-__-__">
+            </div>
+          </div>
+          <div class="text-red fs-14 mb-3" id="valid" style="margin-top: -10px;"></div>
+          <div class="fs-14 mb-3">На указанный телефон придёт письмо со специальной ссылкой для сброса пароля</div>
+          <button type="submit" id="submit2" class="btn w-100 mt-2 mb-3" data-toggle="modal" data-target="#recover-phone-done" onclick="$('#recover').modal('hide');" disabled>Восстановить пароль</button>
+          <div class="text-center">
+            <a href="#" class="text-red pseudo fs-14" data-toggle="modal" data-target="#authorisation" onclick="$('#recover').modal('hide');">Вернуться к авторизации</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="recover-phone-done" tabindex="-1" role="dialog" aria-labelledby="recover-phone-doneLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="w-100">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <h5 class="modal-title" id="recover-phone-doneLabel">Восстановление пароля</h5>
+            </div>
+          </div>
+        </div>        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal__caption mb-4">На номер <b>+7 <span id="recover-num"></span></b> отправлено СМС с инструкциями по восстановлению пароля</div>
+        <button type="button" class="btn w-100" data-toggle="modal" data-target="#authorisation" onclick="$('#recover-phone-done').modal('hide');">Вернуться к авторизации</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="recover-mail" tabindex="-1" role="dialog" aria-labelledby="recover-mailLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header mb-3 mb-sm-0">
+        <div class="w-100">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <h5 class="modal-title" id="recover-mailLabel">Восстановление пароля</h5>
+            </div>
+          </div>
+          <div class="pt-3 mb-2">Укажите ваш номер телефона или электронную почту для сброса пароля</div>
+        </div>        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <label for="mail2">Эл. почта</label>
+            </div>
+            <div class="col-auto mb-2">
+              <a href="#" class="pseudo fs-14" data-toggle="modal" data-target="#recover" onclick="$('#recover-mail').modal('hide');">Восстановить при помощи телефона</a>
+            </div>
+          </div>
+          <div class="input-group mb-4">
+            <input type="email" class="form-control required" required id="mail2" placeholder="Введите вашу эл. почту">
+          </div>
+          <div class="text-red fs-14 mb-3" id="valid2" style="margin-top: -10px;"></div>
+          <div class="fs-14 mb-3">На указанный адрес придёт письмо со специальной ссылкой для сброса пароля</div>
+          <button type="submit" id="submit3" class="btn w-100 mt-2 mb-3" data-toggle="modal" data-target="#recover-mail-done" onclick="$('#recover-mail').modal('hide');" disabled>Восстановить пароль</button>
+          <div class="text-center">
+            <a href="#" class="text-red pseudo fs-14" data-toggle="modal" data-target="#authorisation" onclick="$('#recover').modal('hide');">Вернуться к авторизации</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="recover-mail-done" tabindex="-1" role="dialog" aria-labelledby="recover-mail-doneLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="w-100">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <h5 class="modal-title" id="recover-mail-doneLabel">Восстановление пароля</h5>
+            </div>
+          </div>
+        </div>        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal__caption mb-4">На почту <b><span id="recover-mail-text"></span></b> отправлено письмо с инструкциями по восстановлению пароля</div>
+        <button type="button" class="btn w-100" data-toggle="modal" data-target="#authorisation" onclick="$('#recover-mail-done').modal('hide');">Вернуться к авторизации</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="new-pass" tabindex="-1" role="dialog" aria-labelledby="new-passLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header mb-2">
+        <div class="w-100">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <h5 class="modal-title" id="new-passLabel">Новый пароль</h5>
+            </div>
+          </div>
+        </div>        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label for="password4">Новый пароль</label>
+        <div class="input-group mb-4">
+          <input class="form-control required" type="password" id="password4" required placeholder="Придумайте новый пароль">
+        </div>
+        <label for="password5">Повторите пароль</label>
+        <div class="input-group mb-4">
+          <input class="form-control required" type="password" id="password5" required placeholder="Повторите новый пароль">
+        </div>
+        <button type="button" class="btn w-100 mb-3 mt-2" data-toggle="modal" data-target="#new-pass-done" onclick="$('#new-pass').modal('hide');">Сохранить пароль</button>
+        <div class="text-center">
+          <a href="#" class="text-red pseudo fs-14" data-toggle="modal" data-target="#authorisation" onclick="$('#new-pass').modal('hide');">Вернуться к авторизации</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="new-pass-done" tabindex="-1" role="dialog" aria-labelledby="new-pass-doneLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="w-100">
+          <div class="row justify-content-between align-items-end">
+            <div class="col">
+              <h5 class="modal-title" id="new-pass-doneLabel">Новый пароль</h5>
+            </div>
+          </div>
+        </div>        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal__caption mb-4">Новый пароль успешно сохранён. Используйте его для входа в личный кабинет</div>
+        <button type="button" class="btn w-100" data-toggle="modal" data-target="#authorisation" onclick="$('#new-pass-done').modal('hide');">Войти</button>
       </div>
     </div>
   </div>
